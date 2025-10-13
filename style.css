@@ -1,0 +1,44 @@
+/* Chosen Palette: Terracotta & Khaki */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FDFBF8; /* Warm Neutral Background */
+    color: #4A4A4A;
+}
+.bg-primary { background-color: #D87A60; } /* Terracotta Accent */
+.text-primary { color: #D87A60; }
+.bg-secondary { background-color: #F3E9DD; } /* Light Khaki */
+.text-secondary { color: #8C7D6F; } /* Muted Brown */
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+.nav-link.active {
+    color: #D87A60;
+    font-weight: 600;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    max-height: 400px;
+}
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}
+.tab-btn.active {
+    background-color: #D87A60;
+    color: white;
+}
+.problem-card .details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+.problem-card.open .details {
+    max-height: 500px; /* Large enough value to ensure content fits */
+}
