@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasti Kala - Interactive Pitch Deck</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                Hasti <span class="text-primary">Kala</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#opportunity" class="nav-link text-gray-600 hover:text-primary">The Opportunity</a>
+                <a href="#solution" class="nav-link text-gray-600 hover:text-primary">Our Solution</a>
+                <a href="#model" class="nav-link text-gray-600 hover:text-primary">Business Model</a>
+                <a href="#impact" class="nav-link text-gray-600 hover:text-primary">Market Impact</a>
+                <a href="#future" class="nav-link text-gray-600 hover:text-primary">Future Vision</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-secondary py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight mb-4">Crafting Dignity. Connecting Heritage.</h1>
+                <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto">
+                    Don't just buy a product, invest in an artisan's future. Hasti Kala is the certified, direct-to-consumer marketplace where every purchase ensures fair pay and preserves India's authentic, 7,000-year-old craft heritage.
+                </p>
+            </div>
+        </section>
+
+        <section id="opportunity" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">The Opportunity</h2>
+                    <p class="text-lg text-secondary mt-2 max-w-2xl mx-auto">This section outlines the critical problems faced by India's artisans and the massive, growing market that is waiting for an ethical, technology-driven solution. Explore the data to understand why the time for Hasti Kala is now.</p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-center text-gray-800 mb-8">The Middleman Crisis: Why India’s Artisans Are Disappearing</h3>
+                <div class="grid md:grid-cols-3 gap-8 mb-16 text-center">
+                    <div class="problem-card bg-white p-6 rounded-lg shadow-md cursor-pointer">
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Market Isolation & Low Income</h4>
+                        <p class="text-secondary text-sm">Lack of digital presence and logistics access forces artisans to rely on exploitative middlemen.</p>
+                        <div class="details text-left mt-4 text-sm text-gray-600">
+                            <p><strong>Impact:</strong> The average income for a rural artisan can be as low as **₹74 per day**. Middlemen often take **40-60%** of the final retail price, pushing artisans into poverty and debt.</p>
+                        </div>
+                    </div>
+                    <div class="problem-card bg-white p-6 rounded-lg shadow-md cursor-pointer">
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Loss of Authenticity</h4>
+                        <p class="text-secondary text-sm">Consumers have no way to verify a product's origin, and traditional techniques are lost to mass-market demands.</p>
+                        <div class="details text-left mt-4 text-sm text-gray-600">
+                            <p><strong>Impact:</strong> **90%** of Indian artisans operate informally, lacking the brand identity to compete against cheap, machine-made alternatives that flood the market.</p>
+                        </div>
+                    </div>
+                    <div class="problem-card bg-white p-6 rounded-lg shadow-md cursor-pointer">
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Generational Decline</h4>
+                        <p class="text-secondary text-sm">Low, inconsistent income discourages younger generations from continuing their family's craft heritage.</p>
+                        <div class="details text-left mt-4 text-sm text-gray-600">
+                           <p><strong>Impact:</strong> The United Nations estimates that **30%** of artisans in India have left the trade in recent years due to income instability, leading to an irreversible loss of cultural heritage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-center text-gray-800 mb-2">A Massive, Digitizing Market</h3>
+                    <p class="text-center text-secondary mb-8">The Indian handicrafts market is on a steep growth trajectory, driven by e-commerce adoption.</p>
+                    <div class="chart-container">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Our Solution: The Hasti Kala Platform</h2>
+                    <p class="text-lg text-secondary mt-2 max-w-2xl mx-auto">This section details our product: a mobile-first, direct-to-consumer marketplace designed with and for artisans. Interact with the tabs to see how our core features directly address the problems of market access, fair pay, authenticity, and logistics.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="mb-8">
+                        <div id="tabs" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
+                            <button class="tab-btn active px-4 py-2 text-sm font-medium rounded-full transition" data-tab="tab1">Simplified Storefront</button>
+                            <button class="tab-btn px-4 py-2 text-sm font-medium rounded-full transition" data-tab="tab2">Transparent Value Chain</button>
+                            <button class="tab-btn px-4 py-2 text-sm font-medium rounded-full transition" data-tab="tab3">Authenticity & Storytelling</button>
+                            <button class="tab-btn px-4 py-2 text-sm font-medium rounded-full transition" data-tab="tab4">Logistics Bridge</button>
+                        </div>
+                        <div id="tab-content" class="p-4 rounded-lg bg-gray-50 min-h-[250px]">
+                            <div id="tab1" class="tab-pane active">
+                                <h4 class="font-semibold text-lg mb-2 text-gray-700">Empowering Artisans with Simple Tech</h4>
+                                <p class="text-gray-600">Our platform removes digital barriers. Artisans can easily upload photos of their work, and our AI automatically suggests descriptions, materials, and tags. A voice-enabled interface supporting regional languages makes listing products and managing orders as simple as talking.</p>
+                            </div>
+                            <div id="tab2" class="tab-pane hidden">
+                                <h4 class="font-semibold text-lg mb-2 text-gray-700">Fair and Instant Payments</h4>
+                                <p class="text-gray-600">We cut out the middleman entirely. Payments are instantly released to the artisan's bank account or UPI after product verification and shipping. A built-in digital ledger automates record-keeping and invoicing, replacing cumbersome manual bookkeeping.</p>
+                            </div>
+                            <div id="tab3" class="tab-pane hidden">
+                                <h4 class="font-semibold text-lg mb-2 text-gray-700">Connecting Buyers to the Source</h4>
+                                <p class="text-gray-600">Every product page features an 'Artisan Profile' card with the artisan's photo, village, and the story behind the craft. This fosters an emotional connection and builds brand value. We also integrate verification for Geographical Indication (GI) tags to guarantee provenance and authenticity.</p>
+                                
+                                <!-- TTS Feature -->
+                                <div class="mt-6 p-4 bg-red-50 rounded-lg border-l-4 border-primary">
+                                    <p class="italic text-sm text-gray-700 mb-3">"Before Hasti Kala, I barely made enough to send my children to school. Now, I feel respected, and my craft is valued by the world. It means dignity, not just income." - Anjali, Weaver</p>
+                                    <button id="ttsButton" class="flex items-center justify-center space-x-2 px-4 py-2 bg-primary text-white font-medium rounded-full hover:bg-red-700 transition duration-300 shadow-md" disabled>
+                                        <span id="ttsLoading" class="hidden h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                                        <span id="ttsText">Hear the Story ✨</span>
+                                    </button>
+                                    <audio id="ttsAudioPlayer" class="hidden w-full mt-3" controls></audio>
+                                </div>
+                                <!-- End TTS Feature -->
+
+                            </div>
+                            <div id="tab4" class="tab-pane hidden">
+                                <h4 class="font-semibold text-lg mb-2 text-gray-700">Solving the Last-Mile Problem</h4>
+                                <p class="text-gray-600">Artisans shouldn't be logistics experts. We partner with local courier services for reliable pickup directly from the artisan's cluster. Our field agents provide pre-printed shipping labels and packaging support, making shipping effortless for the creator.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="model" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">A Fair & Sustainable Business Model</h2>
+                     <p class="text-lg text-secondary mt-2 max-w-2xl mx-auto">Our model is built on transparency and value for both the creator and the consumer. This section visualizes how we disrupt the traditional, exploitative value chain and create a profitable, scalable business. Use the interactive chart to see the difference.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+                    <h3 class="text-2xl font-semibold text-center text-gray-800 mb-2">Pricing Disruption: Artisan vs. Middleman</h3>
+                    <p class="text-center text-secondary mb-4">An example breakdown of a hand-painted stole. Toggle between models to see where the money goes.</p>
+                    <div class="text-center mb-6">
+                        <div class="inline-flex rounded-md shadow-sm">
+                            <button id="hastiKalaBtn" class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-l-lg">Hasti Kala Model</button>
+                            <button id="traditionalBtn" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100">Traditional Model</button>
+                        </div>
+                    </div>
+                     <div class="chart-container">
+                        <canvas id="pricingModelChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                     <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold mb-3 text-primary">Revenue Streams</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><strong class="font-medium">10-15% Commission:</strong> A fair, transparent fee on the final sale price.</li>
+                            <li><strong class="font-medium">Premium Services:</strong> Optional features like professional photography packages.</li>
+                            <li><strong class="font-medium">Shipping Fees:</strong> Paid by the customer at checkout.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold mb-3 text-primary">Breakeven Analysis</h4>
+                         <div class="flex justify-around text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-gray-800">₹2,490</p>
+                                <p class="text-sm text-secondary">Avg. Order Value</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-gray-800">~3,334</p>
+                                <p class="text-sm text-secondary">Orders/Month</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Investment Thesis Generator Feature -->
+                <div class="bg-white p-8 rounded-lg shadow-lg mt-12">
+                    <h3 class="text-2xl font-semibold text-center text-gray-800 mb-4">Generate Investment Thesis ✨</h3>
+                    <p class="text-center text-secondary mb-6 max-w-xl mx-auto">See the projected value of your investment. Enter the capital and our AI will synthesize a high-impact thesis based on our market data and social mission.</p>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 items-center justify-center mb-6">
+                        <input type="number" id="investmentAmount" value="5" min="1" class="w-full md:w-40 p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" placeholder="5">
+                        <span class="text-xl font-semibold text-gray-600">Crore ₹</span>
+                        <button id="generateThesisBtn" class="flex items-center justify-center space-x-2 w-full md:w-auto px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-red-700 transition duration-300 shadow-xl">
+                            <span id="thesisLoading" class="hidden h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                            <span id="thesisText">Generate Thesis ✨</span>
+                        </button>
+                    </div>
+                    
+                    <div id="thesisOutput" class="mt-6 p-5 min-h-[100px] bg-secondary border border-gray-300 rounded-lg text-gray-700 italic flex items-center justify-center text-center">
+                        <p>Your compelling investment thesis will appear here.</p>
+                    </div>
+                </div>
+                <!-- End Investment Thesis Generator Feature -->
+            </div>
+        </section>
+
+         <section id="impact" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Creating Market Impact</h2>
+                    <p class="text-lg text-secondary mt-2 max-w-2xl mx-auto">Our go-to-market strategy focuses on authentic storytelling and strategic partnerships to build a trusted brand. This section explains how we will reach our target audience and demonstrate the tangible value we bring to every customer.</p>
+                </div>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                     <div class="text-center">
+                         <h4 class="font-semibold text-lg mb-2">Social Storytelling</h4>
+                         <p class="text-sm text-secondary">Video content showing the process and people behind the craft, shared on Instagram and Pinterest.</p>
+                     </div>
+                      <div class="text-center">
+                         <h4 class="font-semibold text-lg mb-2">Content Marketing</h4>
+                         <p class="text-sm text-secondary">Collaborating with home décor and travel influencers to share the cultural history of our crafts.</p>
+                     </div>
+                      <div class="text-center">
+                         <h4 class="font-semibold text-lg mb-2">PR & Partnerships</h4>
+                         <p class="text-sm text-secondary">Working with government bodies like the PM Vishwakarma Scheme for credibility and reach.</p>
+                     </div>
+                      <div class="text-center">
+                         <h4 class="font-semibold text-lg mb-2">Targeted Ads</h4>
+                         <p class="text-sm text-secondary">Reaching urban consumers in Mumbai, Bangalore, and Delhi during key gifting and festival seasons.</p>
+                     </div>
+                 </div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h3 class="text-2xl font-semibold text-gray-800">Direct Value to the Customer</h3>
+                    <p class="text-secondary mb-4">On the same hand-painted stole, the customer saves a significant amount.</p>
+                    <div class="bg-primary text-white p-6 rounded-lg inline-block">
+                        <span class="text-4xl font-bold">₹705 Saved</span>
+                        <p class="text-sm opacity-90">While ensuring the artisan is paid fairly.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="future" class="py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Our Future Vision</h2>
+                    <p class="text-lg text-secondary mt-2 max-w-2xl mx-auto">This is just the beginning. Our roadmap outlines a plan for scalable growth and technological innovation, deepening our impact on the artisan economy. Explore our goals for the next one to three years.</p>
+                </div>
+                <div class="relative">
+                    <div class="border-l-2 border-primary absolute h-full top-0 left-1/2 -ml-px"></div>
+                    <div class="mb-12 flex justify-between items-center w-full">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">1Y</h1>
+                        </div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-primary text-xl mb-2">Launch & Traction</h3>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>Onboard <strong>5,000</strong> artisans across 20 clusters.</li>
+                                <li>Achieve <strong>₹4.15 Crore</strong> in GMV.</li>
+                                <li>Deliver a <strong>30% increase</strong> in net income for artisans.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="flex justify-between flex-row-reverse items-center w-full">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">3Y</h1>
+                        </div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-primary text-xl mb-2">Scaling & Innovation</h3>
+                             <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>Expand to <strong>100+</strong> craft clusters.</li>
+                                <li>Introduce AR Shopping, Craft Tourism, and Blockchain Authenticity.</li>
+                                <li>Reduce artisan reliance on middlemen by <strong>75%</strong> for all users.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>Hasti Kala | Empowering India's Artisans</p>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
